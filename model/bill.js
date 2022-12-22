@@ -12,4 +12,4 @@ var model = {
     }
 };
 
-export default model ;
+module.exports  = model ;

@@ -1,4 +1,5 @@
-import knexDB from 'knex'
+var knexDB = require('knex');
+
 const knex = knexDB({
     client: 'sqlite3',
     connection: {
@@ -7,4 +8,4 @@ const knex = knexDB({
   });
 
 
-  export  default knex ;
+  module.exports = knex ;

@@ -1,6 +1,6 @@
 
-import request from "request"
-import knex from "../model/db.js"
+var request = require("request");
+var knex = require("../model/db.js");
 
 request("https://data.ly.gov.tw/odw/ID20Action.action?term=10"+
     "&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",

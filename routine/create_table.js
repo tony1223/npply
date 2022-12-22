@@ -1,5 +1,4 @@
-import knex from "../model/db.js"
-
+var knex = require("../model/db.js");
 
 (async function(){
 

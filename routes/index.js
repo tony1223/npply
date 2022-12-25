@@ -26,4 +26,28 @@ router.get('/', async function(req, res, next) {
   res.render('index', { title: '法案清單', bills , columns});
 });
 
+router.get('/questions', async function(req, res, next) {
+  var questions = await db.questions();
+
+  var columns = {
+    term:"屆期",
+    sessionPeriod:"會期",
+    meetingDate:"會議日期(西元年)",
+    meetingTime:"會議時間",
+    meetingTypeName:"主辦單位",
+    meetingName:"會議名稱",
+    meetingContent:"會議事由",
+    legislatorName:"委員姓名",
+    areaName:"選區名稱",
+    speechStartTime:"委員發言時間起",
+    speechEndTime:"委員發言時間迄",
+    speechRecordUrl:"發言紀錄網址",
+    videoLength:"影片長度",
+    videoUrl:"影片網址",
+    selectTerm:"屆別期別篩選條件"
+  };
+  
+  res.render('questions', { title: '質詢清單', questions , columns});
+});
+
 module.exports = router;

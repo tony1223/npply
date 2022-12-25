@@ -1,8 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  ul.nav.nav-tabs
+    li.nav-item
+      a.nav-link.active(href='/') 法案清單
+    li.nav-item
+      a.nav-link(href='/questions') 質詢清單
+
   table.table.table-bordered
     tr 
       th=columns["term"]

@@ -29,4 +29,6 @@ var fs = require("fs");
         await new Promise(resolve => setTimeout(resolve, 1000));
 
     }
+
+    billdb.close();
 })();

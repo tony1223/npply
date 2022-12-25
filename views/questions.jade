@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  ul.nav.nav-tabs
+    li.nav-item
+      a.nav-link(href='/') 法案清單
+    li.nav-item
+      a.nav-link.active(href='/questions') 質詢清單
+
+  table.table.table-bordered
+    tr 
+      th=columns["term"]
+      th=columns["sessionPeriod"]
+      th=columns["meetingDate"]
+      th=columns["meetingTime"]
+      th=columns["meetingTypeName"]
+      th=columns["meetingName"]
+      th(width="20%")=columns["meetingContent"]
+      th(width="10%")=columns["legislatorName"]
+      th=columns["areaName"]
+      th="資料(逐字稿要一段時間才會有)"
+      th=columns["videoLength"]
+      th=columns["videoUrl"]
+      th=columns["selectTerm"]
+
+    - each item in questions 
+      tr
+        td=item.term
+        td=item.sessionPeriod
+        td=item.meetingDate
+        td=item.meetingTime
+        td=item.meetingTypeName
+        td=item.meetingName
+        td(title=item.meetingContent)=item.meetingContent.substring(0,100)+"..."
+        td=item.legislatorName
+        td=item.areaName
+        td
+          - if(item.speechRecordUrl) {
+            a(href=item.speechRecordUrl,target="_blank") 逐字稿
+          - } else { 
+            div 尚無逐字稿
+          - }
+          br 
+          a(href=item.videoUrl,target="_blank") 影片
+        td
+          div=item.videoLength
+          div= "("+item.speechStartTime +" ~ "+item.speechEndTime+")"
+        td=item.selectTerm

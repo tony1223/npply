@@ -21,6 +21,8 @@ var knex = require("../model/db.js");
         table.string('billStatus');
         table.string('pdfUrl');
         table.string('docUrl');
+        table.string('rawDocContent');
+        table.string('jsonDocContent');
         table.string('selectTerm');
       });
 

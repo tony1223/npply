@@ -3,3 +3,36 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  table.table.table-bordered
+    tr 
+      th=columns["term"]
+      th=columns["sessionPeriod"]
+      th=columns["sessionTimes"]
+      //- th meetingTimes
+      th=columns["billNo"]
+      th=columns["billName"]
+      th 案由
+      th=columns["billOrg"]
+      th=columns["billProposer"]
+      th=columns["billCosignatory"]
+      th=columns["billStatus"]
+      th="關係文書下載路徑"
+      th=columns["selectTerm"]
+    - each bill in bills 
+      tr
+        td=bill.term
+        td=bill.sessionPeriod
+        td=bill.sessionTimes
+        //- td=bill.meetingTimes
+        td=bill.billNo
+        td=bill.billName
+        td=JSON.parse(bill.jsonDocContent|| "{}").subject
+        td=bill.billOrg
+        td=bill.billProposer
+        td=bill.billCosignatory
+        td=bill.billStatus
+        td 
+          a(href=bill.pdfUrl) pdf 
+          &nbsp;&nbsp;&nbsp;
+          a(href=bill.docUrl) doc  
+        td=bill.selectTerm

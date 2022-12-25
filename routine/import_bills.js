@@ -11,7 +11,6 @@ request("https://data.ly.gov.tw/odw/ID20Action.action?term=10"+
     
     for(var i = 0 ; i < datas.length ;++i){
         var item  = datas[i];
-        console.log(item);
         try{
             await knex('bills').insert({ 
                 term:item.term,

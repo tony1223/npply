@@ -16,7 +16,7 @@ var model = {
         //pdfUrl
         //docUrl
         //selectTerm
-        var bills = await knex("bills").where( 'billOrg', '本院時代力量黨團').select();
+        var bills = await knex("bills").where( 'billOrg', '本院時代力量黨團').orderBy("billNo","desc").select();
         return bills;
     },
     async questions(){

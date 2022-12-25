@@ -9,7 +9,7 @@ var fs = require("fs");
     var bills = await billdb.bills();
     var index = 0;
     for(var i = 0 ; i < bills.length ;++ i){
-        (async function(ind){
+        await (async function(ind){
             var bill = bills[ind];
             var content = (bill.rawDocContent || "");
             var start = content.indexOf("案由：");
@@ -36,4 +36,5 @@ var fs = require("fs");
         // await new Promise(resolve => setTimeout(resolve, 1000));
 
     }
+    billdb.close();
 })();

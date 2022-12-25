@@ -15,7 +15,7 @@ var fs = require("fs");
             var start = content.indexOf("案由：");
             var end = content.indexOf("提案人");
             if(start != -1){
-                console.log(bill.rawDocContent.substring(start,end));
+//                console.log(bill.rawDocContent.substring(start,end));
                 await billdb.update(bill.billNo,
                     {
                         "jsonDocContent": JSON.stringify({subject:bill.rawDocContent.substring(start,end)})

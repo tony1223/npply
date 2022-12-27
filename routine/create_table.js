@@ -49,6 +49,28 @@ var knex = require("../model/db.js");
         table.string('selectTerm');
       });
 
+      await knex.schema
+        .createTable('votes', table => {
+        table.increments('id');
+        table.string('voteid');
+        table.unique('voiteid');
+        table.string('term');
+        table.string('meet_id');
+        table.string('date');
+        table.string('line_no');
+        table.string('yeslist');
+        table.string('nolist');
+        table.string('giveuplist');
+        table.string('votedetail');
+        //extra
+        table.string('docUrl');
+        table.string('title')
+        table.string('meet_term');
+        table.string('sessionPeriod');
+        table.string('meet_date');
+      });
+
+
       knex.destroy();
 
     // Finally, add a catch statement
